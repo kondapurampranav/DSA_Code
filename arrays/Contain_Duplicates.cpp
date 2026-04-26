@@ -26,9 +26,10 @@
 #include <iostream>
 #include <unordered_set>
 #include <vector>
+using namespace std;
 
 bool containsDuplicate(std::vector<int>& nums) {
-        std::unordered_set<int> seen;
+        unordered_set<int> seen;
 
         for(int x : nums){
             if(seen.find(x) != seen.end()) return true;
@@ -40,19 +41,40 @@ bool containsDuplicate(std::vector<int>& nums) {
 int main(){
     int n;
 
-    std::cout << "Enter number of terms: ";
-    std::cin >> n;
+    cout << "Enter number of terms: ";
+    cin >> n;
 
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for(int i=0;i<n;i++){
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
 
     if(containsDuplicate(nums)){
-        std::cout << "True";
+        cout << "True";
     }
     else{
-        std:: cout << "False";
+        cout << "False";
+    }
+
+    return 0;
+}
+
+// or 
+
+int main(){
+    vector<int> arr = {1, 1, 2}; 
+
+    int i = 0;
+    
+    for(int j=1;j<arr.size();j++){
+        if(arr[j] != arr[i]){
+            i++;
+            arr[i] = arr[j];
+        }
+    }
+    
+    for(int a=0;a<=i;a++){
+        cout << arr[a] << " ";
     }
 
     return 0;
